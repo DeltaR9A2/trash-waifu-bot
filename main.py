@@ -38,6 +38,11 @@ async def info(ctx):
 
     await ctx.send(embed=embed)
 
+@bot.command()
+async def goaway(ctx):
+    await ctx.send(f':sob:')
+    raise SystemExit(0)
+    
 """
 @bot.command()
 async def youtube(ctx, *, search):
@@ -56,4 +61,6 @@ async def on_ready():
     await bot.change_presence(status=None, activity=None)
     print('Systems Online')
 
-bot.run('Nzc3NTYyNjk5MTk3NDQ4MjEy.X7FPsQ.GUIwLkhyYZUiDCQzugWi64HXzPw')
+with open("bot_token.txt", "r") as token_file:
+    token = token_file.readline()
+    bot.run(token)
